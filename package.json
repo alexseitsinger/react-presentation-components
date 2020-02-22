@@ -1,7 +1,7 @@
 {
   "name": "@alexseitsinger/react-presentation-components",
   "version": "0.0.0",
-  "description": "Some react presentation components",
+  "description": "Some presentation components to make building layouts easier",
   "main": "index.js",
   "types": "types/index.d.ts",
   "files": [
