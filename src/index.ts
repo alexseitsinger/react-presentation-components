@@ -1,7 +1,5 @@
 export { Box } from "./box"
 export { Center } from "./center"
-export { CenteredColumn } from "./centered-column"
-export { CenteredRow } from "./centered-row"
 export { Column } from "./column"
 export { FlexList } from "./flex-list"
 export { GripBottom } from "./grip-bottom"
