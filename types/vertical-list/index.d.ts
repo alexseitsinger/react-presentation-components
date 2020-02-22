@@ -1,2 +1,3 @@
-import React from "react";
-export declare const VerticalList: React.ComponentType<{}>;
+/// <reference types="react" />
+/// <reference types="@emotion/core" />
+export declare const VerticalList: import("react").ComponentClass<import("../create-list").CreatedListProps, any>;

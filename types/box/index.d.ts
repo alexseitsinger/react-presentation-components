@@ -1,25 +1,21 @@
 import React, { ReactNode } from "react";
-import PropTypes from "prop-types";
 import { CSSObject } from "@emotion/core";
-interface BoxProps {
+interface InitialProps {
     children: ReactNode | ReactNode[];
-    isCentered: boolean;
-    containerStyle: CSSObject;
-    bodyStyle: CSSObject;
+    isCentered?: boolean;
+    containerStyle?: CSSObject;
+    bodyStyle?: CSSObject;
     size: string;
 }
+declare const defaultProps: {
+    isCentered: boolean;
+    size: string;
+};
+declare type DefaultProps = Readonly<typeof defaultProps>;
+declare type Props = InitialProps & DefaultProps;
 export declare const Box: {
-    ({ bodyStyle, children, containerStyle, isCentered, size, }: BoxProps): React.ReactElement<any, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)>;
-    propTypes: {
-        children: PropTypes.Validator<string | number | boolean | {} | PropTypes.ReactElementLike | PropTypes.ReactNodeArray>;
-        containerStyle: any;
-        bodyStyle: any;
-        isCentered: PropTypes.Requireable<boolean>;
-        size: PropTypes.Requireable<string>;
-    };
+    ({ bodyStyle, children, containerStyle, isCentered, size, }: Props): React.ReactElement<any, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)>;
     defaultProps: {
-        containerStyle: {};
-        bodyStyle: {};
         isCentered: boolean;
         size: string;
     };

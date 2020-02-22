@@ -1,0 +1,1 @@
+{"version":3,"file":"elements.js","sourceRoot":"","sources":["../../src/grip-bottom/elements.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,GAAG,EAAE,MAAM,eAAe,CAAA;AACnC,OAAO,MAAM,MAAM,iBAAiB,CAAA;AAMpC,MAAM,CAAC,MAAM,mBAAmB,GAAG,MAAM,CAAC,GAAG,CAAA;;;IAGzC,CAAC,EAAE,WAAW,EAA4B,EAAO,EAAE;IACnD,IAAI,WAAW,EAAE;QACf,OAAO,GAAG,CAAA;;;OAGT,CAAA;KACF;AACH,CAAC;CACF,CAAA"}
