@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noEmitOnError": true,
-    "noErrorTruncation": false,
+    "noErrorTruncation": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
