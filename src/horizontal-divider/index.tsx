@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { SmallerText, SuperText } from "@alexseitsinger/react-text-components"
 
 import {
@@ -35,20 +34,3 @@ export const HorizontalDivider = ({
     <HorizontalDividerSide lineSize={lineSize} lineColor={lineColor} />
   </HorizontalDividerContainer>
 )
-
-HorizontalDivider.propTypes = {
-  text: PropTypes.string.isRequired,
-  textColor: PropTypes.string,
-  textSpacing: PropTypes.string,
-  lineSize: PropTypes.string,
-  lineColor: PropTypes.string,
-  containerSpacing: PropTypes.string,
-}
-
-HorizontalDivider.defaultHorizontalDividerProps = {
-  textColor: "#AAAAAA",
-  textSpacing: "0.75em",
-  lineSize: "1px",
-  lineColor: "#999999",
-  containerSpacing: "0.75em",
-}

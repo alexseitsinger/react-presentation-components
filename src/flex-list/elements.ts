@@ -9,7 +9,7 @@ export const List = styled.ul`
   max-width: 100%;
 `
 
-export interface ListItemProps {
+interface ListItemProps {
   spacing?: string;
 }
 

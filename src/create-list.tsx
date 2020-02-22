@@ -1,20 +1,17 @@
 import React, {
   Children,
   Component,
-  ComponentType,
+  ComponentClass,
   ElementType,
   ReactElement,
   ReactNode,
 } from "react"
-// @ts-ignore
-import stylePropType from "react-style-proptype"
-import PropTypes from "prop-types"
 import { CSSObject } from "@emotion/core"
 import { uniqueId } from "underscore"
 
 import { isNullish } from "src/utils"
 
-interface CreatedListProps {
+export interface CreatedListProps {
   children: ReactNode | ReactNode[];
   spacing?: string;
   renderEach?: (child: ReactNode | object) => ReactElement;
@@ -30,35 +27,8 @@ interface CreatedListProps {
 export function createList(
   List: ElementType,
   ListItem: ElementType
-): ComponentType {
+): ComponentClass<CreatedListProps> {
   return class CreatedList extends Component<CreatedListProps> {
-    static propTypes = {
-      children: PropTypes.oneOfType([
-        PropTypes.node,
-        PropTypes.arrayOf(PropTypes.node),
-      ]),
-      spacing: PropTypes.string,
-      renderEach: PropTypes.func,
-      renderFirst: PropTypes.func,
-      renderLast: PropTypes.func,
-      renderNone: PropTypes.func,
-      listStyle: stylePropType,
-      itemStyle: stylePropType,
-      items: PropTypes.arrayOf(PropTypes.node),
-    }
-
-    static defaultProps = {
-      children: undefined,
-      spacing: "0px",
-      renderEach: undefined,
-      renderFirst: undefined,
-      renderLast: undefined,
-      renderNone: undefined,
-      listStyle: {},
-      itemStyle: {},
-      items: undefined,
-    }
-
     renderChildren = (): ReactNode | ReactNode[] => {
       const { children, renderEach } = this.props
 
@@ -103,15 +73,15 @@ export function createList(
       const { spacing, itemStyle } = this.props
       const key = `flexListItem-${uniqueId()}`
 
-      if (node !== undefined) {
-        return (
-          <ListItem key={key} spacing={spacing} css={itemStyle}>
-            {node}
-          </ListItem>
-        )
+      if (isNullish(node)) {
+        return null
       }
 
-      return null
+      return (
+        <ListItem key={key} spacing={spacing} css={itemStyle}>
+          {node}
+        </ListItem>
+      )
     }
 
     renderListItems = (): ReactNode | ReactNode[] => {
@@ -142,9 +112,12 @@ export function createList(
         return null
       }
 
-      const finalListStyle = {
-        ...listStyle,
-        height: isMaximized !== undefined && isMaximized ? "100%" : "auto",
+      let finalListStyle = { ...listStyle }
+      if (isMaximized !== undefined && isMaximized === true) {
+        finalListStyle = {
+          ...finalListStyle,
+          height: "100%",
+        }
       }
 
       return <List css={finalListStyle}>{rendered}</List>

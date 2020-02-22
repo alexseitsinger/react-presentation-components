@@ -1,18 +1,24 @@
 import React, { ReactElement, ReactNode } from "react"
-// @ts-ignore
-import stylePropType from "react-style-proptype"
-import PropTypes from "prop-types"
 import { CSSObject } from "@emotion/core"
 
 import { BoxContainer, BoxContainerInner } from "./elements"
 
-interface BoxProps {
+interface InitialProps {
   children: ReactNode | ReactNode[];
-  isCentered: boolean;
-  containerStyle: CSSObject;
-  bodyStyle: CSSObject;
+  isCentered?: boolean;
+  containerStyle?: CSSObject;
+  bodyStyle?: CSSObject;
   size: string;
 }
+
+const defaultProps = {
+  isCentered: false,
+  size: "100%",
+}
+
+type DefaultProps = Readonly<typeof defaultProps>
+
+type Props = InitialProps & DefaultProps
 
 export const Box = ({
   bodyStyle,
@@ -20,7 +26,7 @@ export const Box = ({
   containerStyle,
   isCentered,
   size,
-}: BoxProps): ReactElement => (
+}: Props): ReactElement => (
   <BoxContainer css={containerStyle} size={size}>
     <BoxContainerInner isCentered={isCentered} css={bodyStyle}>
       {children}
@@ -28,20 +34,4 @@ export const Box = ({
   </BoxContainer>
 )
 
-Box.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
-  ]).isRequired,
-  containerStyle: stylePropType,
-  bodyStyle: stylePropType,
-  isCentered: PropTypes.bool,
-  size: PropTypes.string,
-}
-
-Box.defaultProps = {
-  containerStyle: {},
-  bodyStyle: {},
-  isCentered: false,
-  size: "100%",
-}
+Box.defaultProps = defaultProps

@@ -1,5 +1,4 @@
 import React, { ReactElement, ReactNode } from "react"
-import PropTypes from "prop-types"
 
 import {
   CenterContainer,
@@ -18,10 +17,3 @@ export const Center = ({ children }: CenterProps): ReactElement => (
     </CenterContainerOuter>
   </CenterContainer>
 )
-
-Center.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-}

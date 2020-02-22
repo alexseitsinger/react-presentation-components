@@ -1,16 +1,21 @@
 import React, { ReactElement, ReactNode } from "react"
-// @ts-ignore
-import stylePropType from "react-style-proptype"
-import PropTypes from "prop-types"
 import { CSSObject } from "@emotion/core"
 
 import { GripBottomContainer } from "./elements"
 
-interface Props {
+interface InitialProps {
   children: ReactNode | ReactNode[];
-  containerStyle: CSSObject;
-  isMaximized: boolean;
+  containerStyle?: CSSObject;
+  isMaximized?: boolean;
 }
+
+const defaultProps = {
+  isMaximized: false,
+}
+
+type DefaultProps = Readonly<typeof defaultProps>
+
+type Props = InitialProps & DefaultProps
 
 export const GripBottom = ({
   children,
@@ -22,16 +27,4 @@ export const GripBottom = ({
   </GripBottomContainer>
 )
 
-GripBottom.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  containerStyle: stylePropType,
-  isMaximized: PropTypes.bool,
-}
-
-GripBottom.defaultProps = {
-  isMaximized: false,
-  containerStyle: {},
-}
+GripBottom.defaultProps = defaultProps
