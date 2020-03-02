@@ -1,27 +1,22 @@
-const path = require("path")
-
-const javascriptConfig = require("./.eslintrc-javascript")
-const typescriptConfig = require("./.eslintrc-typescript")
-const packageConfig = require("./.eslintrc-package")
-const markdownConfig = require("./.eslintrc-markdown")
+const configs = require("@alexseitsinger/eslint-config")
 
 module.exports = {
   overrides: [
     {
       files: ["*.js", "*.jsx"],
-      ...javascriptConfig,
+      ...configs.javascriptReact,
     },
     {
       files: ["*.ts", "*.tsx"],
-      ...typescriptConfig,
+      ...configs.typescriptReact,
     },
     {
       files: ["package.json"],
-      ...packageConfig,
+      ...configs.packageJson,
     },
     {
       files: ["*.md"],
-      ...markdownConfig,
+      ...configs.markdownTypescriptReact,
     },
   ],
 }
