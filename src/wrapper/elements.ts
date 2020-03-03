@@ -6,7 +6,7 @@ interface WrapperContainerProps {
 }
 
 export const WrapperContainer = styled.div`
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   ${({ minHeight }: WrapperContainerProps): any => {
     if (minHeight !== undefined) {
