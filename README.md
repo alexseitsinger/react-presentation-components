@@ -67,6 +67,13 @@ Elements within are both vertically and horizontally centered.
 
 A container width a `max-width: 1200px`, and `margin: 0 auto`.
 
+###### Props
+
+Name      | Description                        | Default | Required?
+---       | ---                                | ---     | ---
+maxWidth  | Alternative value for `max-width`  | 1200px  | no
+minHeight | Alternative value for `min-height` | auto    | no
+
 #### VerticalAlign
 
 Uses the flexbox model to vertically align children.
