@@ -1,19 +1,20 @@
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-interface WrapperContainerProps {
+interface Props {
   minHeight?: string;
+  maxWidth?: string;
 }
 
-export const WrapperContainer = styled.div`
+export const WrapperElement = styled.div`
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-  ${({ minHeight }: WrapperContainerProps): any => {
-    if (minHeight !== undefined) {
-      return css`
-        min-height: ${minHeight};
-      `
-    }
-  }}
+  ${({ maxWidth, minHeight }: Props): any => {
+    const height = minHeight !== undefined ? minHeight : "auto"
+    const width = maxWidth !== undefined ? maxWidth : "1200px"
+    return css`
+      max-width: ${width};
+      min-height: ${height};
+    `
+  }}}
 `

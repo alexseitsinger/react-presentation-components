@@ -1,20 +1,25 @@
 import React, { ReactElement, ReactNode } from "react"
 import { CSSObject } from "@emotion/core"
 
-import { WrapperContainer } from "./elements"
+import { WrapperElement } from "./elements"
 
-interface WrapperProps {
-  containerStyle?: CSSObject;
+interface Props {
   children: ReactNode | ReactNode[];
+  containerStyle?: CSSObject;
   minHeight?: string;
+  maxWidth?: string;
 }
 
 export const Wrapper = ({
   children,
   containerStyle,
   minHeight,
-}: WrapperProps): ReactElement => (
-  <WrapperContainer css={containerStyle} minHeight={minHeight}>
+  maxWidth,
+}: Props): ReactElement => (
+  <WrapperElement
+    css={containerStyle}
+    minHeight={minHeight}
+    maxWidth={maxWidth}>
     {children}
-  </WrapperContainer>
+  </WrapperElement>
 )
