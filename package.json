@@ -41,7 +41,7 @@
     "underscore": "^1.9.2"
   },
   "devDependencies": {
-    "@alexseitsinger/eslint-config": "^5.2.0",
+    "@alexseitsinger/eslint-config": "^5.4.0",
     "@babel/core": "7.8.4",
     "@babel/plugin-proposal-export-namespace-from": "7.8.3",
     "@babel/plugin-syntax-export-namespace-from": "7.8.3",
